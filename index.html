@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    
+        const socket = new WebSocket("ws://localhost:8080/ws")
+        
+        function sendmessage (){
+            socket.send("bvdvddgvgvgvgvgvgvgv")
+        }
+        console.log("connection successfully attempted")
+
+        socket.onopen = (event) => {
+            console.log("connection succesfull")
+            socket.send("hello server")
+            // socket.send("broadcasting")
+            sendmessage()
+        }
+    
+
+        socket.onclose = (event) => {
+            console.log("connection closed" , event)
+
+
+        }
+        socket.onmessage = (msg)=>{
+            console.log("message from server",msg)
+        }
+        socket.onerror = (event)=>{
+            console.log("there is socket error",event)
+        }
+
+
+    </script>
+</body>
+
+</html>
