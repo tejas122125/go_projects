@@ -81,6 +81,7 @@ import (
 	"log"
 	"net/http"
 	"github.com/gorilla/websocket"
+	"github.com/tejas122125/go-websocket/websocket"
 )
 
 var upgrader = websocket.Upgrader{
@@ -143,6 +144,9 @@ func handleWebSocket(w http.ResponseWriter, r *http.Request) {
 	}
 
 	log.Println("Client disconnected")
+}
+func wsconnection (pool gowebsocket.Hub){
+
 }
 
 func main() {
